@@ -1,0 +1,67 @@
+﻿<div class="row" ng-controller="EventsController" ng-init="loadEvents()">
+
+
+
+
+    <div class="col-lg-4 col-md-12 col-xs-12" ng-repeat="x in events">
+
+        <div>&nbsp;</div>
+
+        <div class="col-md-12 header-color x-large-text">
+            <div class="large-screen-only">
+                <a class="light-link small-pad bold-text" aria-label="Edit Event" href="#EventDetails/{{x.eventId}}">{{x.title}}</a>
+            </div>
+
+            <div class="small-medium-screen dark-text bold-text small-pad-top-bot">{{x.title}}</div>
+
+        </div>
+
+        <div class="col-md-12 event-pads">
+            <div class="row">
+                <div class="col-xs-6 event-pad-categories">Location: </div>
+                <div class="col-xs-6 event-pad-details">{{x.location}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 event-pad-categories">Date: </div>
+                <div class="col-xs-6 event-pad-details">{{x.startDay.date}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 event-pad-categories">Start Time: </div>
+                <div class="col-xs-6 event-pad-details">{{x.startDay.TimeOfDay}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 event-pad-categories">Duration: </div>
+                <div class="col-xs-6 event-pad-details">{{x.duration}}</div>
+            </div>
+            <div>&nbsp;</div>
+            <div class="row">
+                <div>Notes:</div>
+            </div>
+            <div class="event-pad-note-box">
+                <div class="row">
+                    <div class="col-xs-12">{{x.notes}}</div>
+                </div>
+            </div>
+
+
+            <!--Edit button for small and medium screens-->
+            <div class="row">
+                <div class="col-xs-12 small-medium-screen">&nbsp;</div>
+            </div>
+
+            <!--336px to 365px screen widths currently prevents this button from centering-->
+            <div class="row small-medium-screen header-color">
+                <a class="dark-link x-large-text bold-text pad-sides" href="#EventDetails/{{x.eventId}}">Event Details</a>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 small-medium-screen">&nbsp;</div>
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+</div>

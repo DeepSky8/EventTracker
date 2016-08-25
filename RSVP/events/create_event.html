@@ -1,0 +1,71 @@
+﻿<div class="row" ng-controller="EventsController">
+    <div class="col-lg-4 col-xs-0"></div>
+    <div class="col-lg-4 col-xs-12">
+
+        <div>&nbsp;</div>
+
+        <div class="create-pad">
+            <form>
+                <div class="light-text header-color x-large-text small-pad-top-bot">
+                    <div>Create New Event</div>
+                </div>
+
+
+
+
+                <div>&nbsp;</div>
+
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="form-group" id="newEvent">
+                            <label for="title" class="sr-only">Title</label>
+                            <input type="text" class="form-control" id="title" placeholder="Title" ng-model="newTitle" maxlength="22" />
+                            <label for="location" class="sr-only">Location</label>
+                            <input type="text" class="form-control" id="location" placeholder="Location" ng-model="newLocation" />
+                        </div>
+
+                        <div>
+                            <!--<label for="datePicker" class="sr-only">DatePicker</label>-->
+                            <div id="datePicker">
+                                <div class="row">
+                                    <div class="col-md-6" ng-controller="DatepickerPopupDemoCtrl">
+                                        <div class="input-group">
+                                            <input ng-model="newStartDay" type="text" class="form-control" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" placeholder="Date" />
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6" id="DarkText">
+                                        <span>TimePicker Goes Here</span>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="duration" class="sr-only">Duration</label>
+                                        <input type="text" class="form-control" id="duration" placeholder="Duration" ng-model="newDuration" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="notes" class="sr-only">Notes</label>
+                            <input type="text" class="form-control" id="notes" placeholder="Notes" ng-model="newNotes" />
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="header-color" ng-click="createEvent()">
+                    <button class="button-Light small-pad">Create it!</button>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+    <div class="col-lg-4 col-xs-0"></div>
+</div>

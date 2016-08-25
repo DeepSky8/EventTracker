@@ -1,0 +1,68 @@
+﻿<div class="small-pad">&nbsp;</div>
+<div ng-controller="EventsController">
+    <div class="col-lg-4 col-xs-0" ng-init="loadEvent()"></div>
+    <div class="col-lg-4 col-xs-12">
+        <div>
+            <!--<div class="header-color light-text x-large-text bold-text small-pad-top-bot">Click to Edit</div>-->
+            <!--<div class="small-pad">&nbsp;</div>-->
+
+            <label for="detailTitle" class="sr-only">Title</label>
+
+            <div class="header-color">
+                <div class="light-text x-large-text bold-text small-pad-top-bot click-light" id="detailTitle" editable-textarea="currentEvent.title">{{currentEvent.title || 'Untitled' }}</div>
+            </div>
+
+            <div class="detail-pad body-color">
+                <div class="event-details">
+                    <label for="detailLocation" class="sr-only">Location</label>
+                    <div class="small-pad click-dark" id="detailTitle" editable-textarea="currentEvent.location">{{currentEvent.location || 'empty' }}</div>
+                    <label for="startDay" class="sr-only">Date</label>
+                    <div class="small-pad click-dark" id="startDay" editable-textarea="currentEvent.startDay">{{clickEvent.startDay || 'empty' }}</div>
+                    <label for="duration" class="sr-only">Duration</label>
+                    <div class="small-pad" id="duration" editable-textarea="currentEvent.duration">{{clickEvent.duration || 'empty' }}</div>
+                    <label for="notes" class="sr-only">Notes</label>
+                    <div id="notes" editable-textarea="currentEvent.notes" e-rows="4" e-cols="22"><pre>{{currentEvent.notes || 'empty' }}</pre></div>
+                </div>
+                <div class="row">
+                    <button ng-click="modifyEvent()" class="col-xs-6 button-Dark">Save it!</button>
+                    <a class="col-xs-6 x-large-text dark-link header-color" href="#DeleteEvent/{{currentEvent.eventId}}">Delete it!</a>
+                </div>
+            </div>
+
+            <!--<button ng-click="modifyEvent()" class="col-xs-6 button-Dark small-pad">Save it!</button>
+        <a class="col-xs-6 x-large-text dark-link header-color small-pad" href="#DeleteEvent/{{currentEvent.eventId}}">Delete it!</a>-->
+
+            <div class="reg-pad">&nbsp;</div>
+
+            <div class="body-color">
+                <div class="header-color">
+                    <div class="light-text x-large-text bold-text small-pad-top-bot">Add a comment:</div>
+                </div>
+                <div class="form-group body-color event-details">
+                    <label for="commentName" class="sr-only">Name</label>
+                    <input type="text" class="form-control small-pad" id="commentName" placeholder="Name" ng-model="commentName" />
+                    <label for="comment" class="sr-only">Comment Box</label>
+                    <input type="text" class="form-control small-pad" id="comment" placeholder="Comment" ng-model="commentText" />
+                </div>
+                <button ng-click="addComment()" class="button-Dark small-pad" style="width: 100%;">Save Comment!</button>
+            </div>
+
+            <div>&nbsp;</div>
+
+            <div class="body-color x-large-text" ng-repeat="x in currentEvent.comments">
+
+                <div class="col-xs-10 bold-text light-text header-color small-pad">{{x.commentName}}</div>
+
+                <button ng-click="deleteComment(x.commentId)" class="col-xs-2 x-large-text button-Light small-pad-top-bot">
+                    <span class="glyphicon glyphicon-remove-sign"></span>
+                </button>
+
+
+                <div>&nbsp;</div>
+                <div class="col-xs-12 dark-text">{{x.commentText}}</div>
+                <div>&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-xs-0"></div>
+</div>

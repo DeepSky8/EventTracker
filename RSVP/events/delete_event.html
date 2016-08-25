@@ -1,0 +1,64 @@
+﻿<div class="row" ng-controller="EventsController">
+    <div class="col-lg-4 col-xs-0" ng-init="loadEvent()"></div>
+    <div class="col-lg-4 col-xs-12">
+
+
+        <div>&nbsp;</div>
+
+
+        <div>
+
+            <div class="delete-header light-text x-large-text bold-text small-pad-top-bot">Delete this Event?</div>
+
+
+            <div>&nbsp;</div>
+            <div class="delete-pad">
+                <div class="col-md-12 light-text header-color x-large-text">
+                    <div class="light-text bold-text small-pad-top-bot">{{currentEvent.title}}</div>
+                </div>
+
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-xs-6 event-pad-categories">Location: </div>
+                        <div class="col-xs-6 event-pad-details">{{currentEvent.location}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 event-pad-categories">Date: </div>
+                        <div class="col-xs-6 event-pad-details">{{currentEvent.startDay.date}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 event-pad-categories">Start Time: </div>
+                        <div class="col-xs-6 event-pad-details">{{currentEvent.startDay.TimeOfDay}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 event-pad-categories">Duration: </div>
+                        <div class="col-xs-6 event-pad-details">{{currentEvent.duration}}</div>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="row">
+                        <div>Notes:</div>
+                    </div>
+                    <div class="event-pad-note-box">
+                        <div class="row">
+                            <div class="col-xs-12">{{currentEvent.notes}}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-1"></div>
+
+                <div class="col-xs-12">&nbsp;</div>
+
+                <div>
+                    <a class="col-xs-6 x-large-text dark-link header-color small-pad" href="#EventDetails/{{currentEvent.eventId}}">Nevermind!</a>
+                </div>
+
+
+                <button ng-click="deleteEvent()" class="col-xs-6 button-Light-Delete small-pad">Delete it!</button>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-4 col-xs-0"></div>
+</div>

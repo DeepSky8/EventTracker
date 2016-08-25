@@ -1,0 +1,65 @@
+﻿<div class="row" ng-controller="EventsController" ng-init="loadEvents()">
+    <div id="HideSmall">
+        <div>&nbsp;</div>
+    </div>
+    <div id="SmallScreenDescriptors">
+        <div id="CenterText">
+            <div id="DarkText">
+                <div id="HideBig">All Events</div>
+            </div>
+        </div>
+    </div>
+    <div>&nbsp;</div>
+    <div class="col-lg-4 col-xs-12 col-md-12" ng-repeat="x in events">
+
+        <div id="HeaderColor" class="col-md-12">
+            <div id="ShowBig">
+                <div id="XLargeText">
+                    <div id="LightText">
+                        <div id="HeaderColor">
+                            <a href="#EditEvent/{{x.eventId}}">{{x.title}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="SmallScreenDescriptors">
+            <div id="HideBig">{{x.title}}</div>
+        </div>
+
+        <div class="col-md-12" id="EventPads">
+            <div class="row">
+                <div id="EventPadCategories" class="col-xs-6">Location: </div>
+                <div id="EventPadDetails" class="col-xs-6">{{x.location}}</div>
+            </div>
+            <div class="row">
+                <div id="EventPadCategories" class="col-xs-6">Date: </div>
+                <div id="EventPadDetails" class="col-xs-6">{{x.startDay.date}}</div>
+            </div>
+            <div class="row">
+                <div id="EventPadCategories" class="col-xs-6">Start Time: </div>
+                <div id="EventPadDetails" class="col-xs-6">{{x.startDay.TimeOfDay}}</div>
+            </div>
+            <div class="row">
+                <div id="EventPadCategories" class="col-xs-6">Duration: </div>
+                <div id="EventPadDetails" class="col-xs-6">{{x.duration}}</div>
+            </div>
+            <div>&nbsp;</div>
+            <div class="row">
+                <div id="CenterText">Notes:</div>
+            </div>
+            <div id="EventPadNoteBox">
+                <div class="row">
+                    <div id="CenterText" class="col-xs-12">{{x.notes}}</div>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+            <div id="ShowMediumDown">
+                <a href="#EditEvent/{{x.eventId}}">Edit/Delete this Event</a>
+            </div>
+        </div>
+        <div id="SmallPadBot">&nbsp;</div>
+    </div>
+
+</div>

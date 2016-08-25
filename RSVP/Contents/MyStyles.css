@@ -1,0 +1,413 @@
+﻿body {
+    background-color: #f1f5f7;
+    text-align: center;
+}
+
+
+/*Menu Text and Glyphs*/
+.menu #home {
+    /*margin-right: 90px;*/
+}
+
+    .menu #home:after {
+        content: "Home";
+    }
+
+.menu #create {
+    /*margin-left: 0px;*/
+}
+
+    .menu #create:after {
+        content: "Create Event";
+    }
+
+
+/*Home Headers and Edit Buttons*/
+.small-medium-screen {
+    display: inline-block;
+}
+
+.large-screen-only {
+    display: none;
+}
+
+
+/*Phones*/
+@media only screen and (max-width: 568px ) {
+
+    .menu #home:after {
+        content: "";
+    }
+
+    .menu #create:after {
+        content: "";
+    }
+
+    .small-medium-screen {
+        display: inline-block;
+    }
+
+    .large-screen-only {
+        display: none;
+    }
+}
+
+.event-details {
+    padding: 0 10px 0 10px;
+}
+
+
+
+
+/*Tablets*/
+@media only screen and (max-width: 768px ) {
+
+    .small-medium-screen {
+        display: inline-block;
+    }
+
+    .large-screen-only {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1024px ) {
+    .small-medium-screen {
+        display: inline-block;
+    }
+
+    .large-screen-only {
+        display: none;
+    }
+}
+
+
+
+/*Large Screens*/
+@media only screen and (min-width: 1280px ) {
+
+    .small-medium-screen {
+        display: none;
+    }
+
+    .large-screen-only {
+        display: inline-block;
+    }
+}
+
+
+
+/*Links*/
+a.light-link:link, a.light-link:visited {
+    color: #d1e0e0;
+    text-decoration: none;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+a.light-link-right:link, a.light-link-right:visited {
+    color: #d1e0e0;
+    text-decoration: none;
+    vertical-align: middle;
+    display: inline-block;
+    text-align: right;
+}
+
+a.dark-link:link, a.dark-link:visited {
+    color: #354b49;
+    text-decoration: none;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/*a.delete:link, a.delete:visited {
+    color: #d1e0e0;
+    text-decoration: none;
+    vertical-align: middle;
+    display: inline-block;
+}*/
+
+a.light-link:hover, a.light-link:active {
+    background-color: #2dd2d2;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+a.light-link-right:hover, a.light-link-right:active {
+    background-color: #2dd2d2;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: right;
+}
+
+a.dark-link:hover, a.dark-link:active {
+    background-color: #2dd2d2;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/*a.delete:hover, a.delete:active {
+    background-color: #ff8080;
+    text-decoration: none;
+    color: #ff0000;
+    cursor: pointer;
+    display: inline-block;
+}*/
+
+
+/*Buttons*/
+button.button-Dark {
+    display: inline-block;
+    position: relative;
+    background-color: #24a8a8;
+    cursor: pointer;
+    border: 0;
+    color: #354b49;
+    text-decoration: none;
+    font-size: x-large;
+}
+
+    button.button-Dark:hover {
+        background-color: #2dd2d2;
+        color: black;
+    }
+
+button.button-Light {
+    display: inline-block;
+    position: relative;
+    background-color: #24a8a8;
+    cursor: pointer;
+    border: 0;
+    color: #d1e0e0;
+    text-decoration: none;
+    font-size: x-large;
+}
+
+    button.button-Light:hover {
+        background-color: #2dd2d2;
+        color: black;
+    }
+
+button.button-Light-Delete {
+    background-color: #ff0000;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    border: 0;
+    color: #d1e0e0;
+    text-decoration: none;
+    font-size: x-large;
+}
+
+    button.button-Light-Delete:hover {
+        background-color: #ff8080;
+        color: #ff0000;
+    }
+
+
+    /*Hover Elements*/
+.click-light:hover {
+    background-color: #2dd2d2;
+    color: #354b49;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.click-dark:hover {
+    background-color: #24a8a8;
+    color: #d1e0e0;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+
+
+
+/*Page and Text Colors*/
+.header-color {
+    background-color: #24a8a8;
+}
+
+.body-color {
+    background-color: #59c0c0;
+}
+
+.light-text {
+    color: #d1e0e0;
+}
+
+.dark-text {
+    color: #354b49;
+}
+
+
+
+
+
+/*Form Pads*/
+.event-pads {
+    background-color: #59c0c0;
+    color: #354b49;
+    text-decoration: none;
+    font-size: large;
+    min-height: 250px;
+}
+
+.event-pad-categories {
+    text-align: right;
+}
+
+.event-pad-details {
+    text-align: left;
+}
+
+.event-pad-note-box {
+    border: 1px inset #d1e0e0;
+    min-height: 60px;
+}
+
+.create-pad {
+    background-color: #59c0c0;
+    color: #354b49;
+    text-decoration: none;
+    font-size: large;
+    min-height: 300px;
+    vertical-align: central;
+}
+
+.delete-header {
+    background-color: #ff0000;
+}
+
+.delete-pad {
+    background-color: #59c0c0;
+    text-decoration: none;
+    font-size: large;
+    min-height: 300px;
+}
+
+.dont-delete {
+    background-color: #33ff33;
+}
+
+.detail-box-colors {
+    background-color: #59c0c0;
+    color: #354b49;
+    text-decoration: none;
+    font-size: x-large;
+    /*min-height: 190px;*/
+}
+
+
+
+
+/*Space and Size Pads*/
+
+.small-pad {
+    padding: 5px 5px;
+}
+
+button.small-pad {
+    padding: 5px;
+}
+
+.small-pad-top {
+    padding: 5px 0px 0px;
+}
+
+.small-pad-bot {
+    padding: 0px 0px 5px 0px;
+}
+
+.small-pad-top-bot {
+    padding: 5px 0px;
+}
+
+.small-pad-sides {
+    padding: 0px 5px;
+}
+
+.delete-comment-pad {
+    padding: 5px 0px 5px 0px;
+}
+
+
+
+
+.med-pad {
+    padding: 10px;
+}
+
+.med-pad-bot {
+    padding: 0px 0px 10px 0px;
+}
+
+
+button.med-pad {
+    padding: 10px;
+}
+
+
+
+
+.reg-pad {
+    padding: 15px 15px;
+}
+
+button.reg-pad {
+    padding: 15px;
+}
+
+.pad-sides {
+    padding: 0px 15px;
+}
+
+.pad-left {
+    padding: 0px 0px 0px 15px;
+}
+
+.pad-right {
+    padding: 0px 15px 0px 0px;
+}
+
+.reg-pad-bot {
+    padding: 0px 0px 15px 0px;
+}
+
+
+
+.large-pad-right {
+    padding: 0px 30px 0px 0px;
+}
+
+.large-pad-bot {
+    padding: 0px 0px 30px 0px;
+}
+
+
+
+.spacer {
+    line-height: 25px;
+}
+
+.x-large-text {
+    font-size: x-large;
+}
+
+.bold-text {
+    font-weight: 600;
+}
+
+.right-align {
+    text-align: right;
+}
+
+

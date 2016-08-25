@@ -1,0 +1,76 @@
+﻿<div class="row" ng-controller="EventsController">
+    <div class="col-lg-4 col-xs-0" ng-init="loadEvent()"></div>
+    <div class="col-lg-4 col-xs-12">
+
+        <div>&nbsp;</div>
+
+
+        <div class="create-pad">
+            <form>
+
+                <div class="header-color dark-text x-large-text bold-text small-pad-top-bot">Edit this Event</div>
+
+
+                <div>&nbsp;</div>
+
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="form-group" id="editEvent">
+                        <label for="editTitle" class="sr-only">Title</label>
+                        <input type="text" class="form-control" id="editTitle" placeholder="Title" ng-model="currentEvent.title" maxlength="22" />
+                        <label for="editLocation" class="sr-only">Location</label>
+                        <input type="text" class="form-control" id="editLocation" placeholder="Location" ng-model="currentEvent.location" />
+                    </div>
+
+                    <div>
+                        <!--<label for="datePicker" class="sr-only">DatePicker</label>-->
+                        <div id="datePicker">
+                            <div class="row">
+                                <div class="col-md-6" ng-controller="DatepickerPopupDemoCtrl">
+                                    <div class="input-group">
+                                        <label for="startDayPicker" class="sr-only">Start Day Picker</label>
+                                        <input id="startDayPicker" ng-model="currentEvent.startDay" type="text" class="form-control" uib-datepicker-popup="{{format}}" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" placeholder="Date" />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 dark-text">
+                                    <span>TimePicker Goes Here</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="editDuration" class="sr-only">Duration</label>
+                                    <input type="text" class="form-control" id="editDuration" placeholder="Duration" ng-model="currentEvent.duration" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="editNotes" class="sr-only">Notes</label>
+                        <input type="text" class="form-control" id="editNotes" placeholder="Notes" ng-model="currentEvent.notes" />
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+
+
+                <button ng-click="modifyEvent()" class="col-xs-6 button-Dark small-pad">Save it!</button>
+
+
+
+                <a class="col-xs-6 x-large-text dark-link header-color small-pad" href="#DeleteEvent/{{currentEvent.eventId}}">Delete it!</a>
+
+
+
+
+
+
+            </form>
+
+
+        </div>
+    </div>
+    <div class="col-lg-4 col-xs-0"></div>
+</div>

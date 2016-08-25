@@ -1,0 +1,27 @@
+﻿<div ng-controller="EventsController">
+    <!--<button ng-click="getEvents()">Display Events</button>-->
+    <table ng-init="loadEvents()">
+        <thead>
+            <tr>
+                <th>Event Title</th>
+                <th>Location</th>
+                <th>Day</th>
+                <th>Start Time</th>
+                <th>Duration</th>
+                <th>Notes</th>
+                <th>Edit</th>                    
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in events">
+                <td>{{x.title}}</td>
+                <td>{{x.location}}</td>
+                <td>{{x.startDay}}</td>
+                <td>{{x.startTime}}</td>
+                <td>{{x.duration}}</td>
+                <td>{{x.notes}}</td>
+                <td><a href="#EditEvent/{{x.eventId}}">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,98 @@
+﻿<div class="row" ng-controller="EventsController">
+    <div class="col-lg-4 col-xs-0" ng-init="loadEvent()"></div>
+    <div class="col-lg-4 col-xs-12">
+
+
+
+        <div>&nbsp;</div>
+
+        <div class="col-md-12 header-color x-large-text">
+            <div class="large-screen-only light-text bold-text small-pad-top-bot">{{currentEvent.title}}</div>
+            <div class="small-medium-screen dark-text bold-text small-pad-top-bot">{{currentEvent.title}}</div>
+        </div>
+
+        <div class="col-md-12 event-pads">
+            <div class="row">
+                <div class="col-xs-6 event-pad-categories">Location: </div>
+                <div class="col-xs-6 event-pad-details">{{currentEvent.location}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 event-pad-categories">Date: </div>
+                <div class="col-xs-6 event-pad-details">{{currentEvent.startDay.date}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 event-pad-categories">Start Time: </div>
+                <div class="col-xs-6 event-pad-details">{{currentEvent.startDay.TimeOfDay}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 event-pad-categories">Duration: </div>
+                <div class="col-xs-6 event-pad-details">{{currentEvent.duration}}</div>
+            </div>
+            <div>&nbsp;</div>
+            <div class="row">
+                <div>Notes:</div>
+            </div>
+            <div class="event-pad-note-box">
+                <div class="row">
+                    <div class="col-xs-12">{{currentEvent.notes}}</div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-xs-12 small-medium-screen">&nbsp;</div>
+            </div>
+
+            <div class="form-group">
+                <label for="commentName" class="sr-only">Name</label>
+                <input type="text" class="form-control" id="commentName" placeholder="Name" />
+                <label for="comment" class="sr-only">Comment Box</label>
+                <input type="text" class="form-control" id="comment" placeholder="Comment" />
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="col-lg-4 col-xs-0"></div>
+</div>
+
+
+
+
+<!--<thead>
+            <tr>
+                <th>Event Title</th>
+                <th>Location</th>
+                <th>Day</th>
+                <th>Start Time</th>
+                <th>Duration</th>
+                <th>Notes</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{currentEvent.title}}</td>
+                <td>{{currentEvent.location}}</td>
+                <td>{{currentEvent.startDay}}</td>
+                <td>{{currentEvent.startDay}}</td>
+                <td>{{currentEvent.startTime}}</td>
+                <td>{{currentEvent.duration}}</td>
+                <td>{{currentEvent.notes}}</td>
+                <td><a href="#EditEvent/{{currentEvent.eventId}}">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>-->

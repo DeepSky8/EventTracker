@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html ng-app="RSVP">
+<head>
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-resource.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+    <script src="Scripts/App.js"></script>
+    <script src="Scripts/EventsController.js"></script>
+    <script src="Scripts/ui-bootstrap-tpls-1.3.3.js"></script>
+    <script src="Scripts/DatePickerController.js"></script>
+    <script src="Scripts/xeditable.js"></script>
+    <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+    <!--<script src="Scripts/TimePickerController.js"></script>-->
+    <link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="Contents/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="Contents/MyStyles.css" media="screen" />
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="col-lg-2 col-md-2 col-sm-0 col-xs-0"></div>
+        <div class="col-lg-8 col-md-8 col-sm-0 col-xs-0">
+            <div class="menu row header-color">
+                <div class="col-xs-6"><a id="home" class="light-link x-large-text bold-text reg-pad menu" href="#Home"><span class="glyphicon glyphicon-home pad-right"></span></a></div>
+                <div class="col-xs-6"><a id="create" class="light-link x-large-text bold-text reg-pad menu" href="#CreateNewEvent"><span class="glyphicon glyphicon-plus pad-right"></span></a></div>
+            </div>
+            <div class="row">
+                <div ng-view></div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-0 col-xs-0"></div>
+    </div>
+
+
+
+</body>
+
+</html>
