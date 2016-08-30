@@ -22,6 +22,7 @@
             startDay: new Date($scope.newStartDay),
             duration: $scope.newDuration,
             notes: $scope.newNotes,
+            userId: $scope.userId,
         }, function (result) { $location.path('home') });
     }
 
@@ -32,7 +33,8 @@
             location: $scope.currentEvent.location,
             startDay: new Date($scope.currentEvent.day),
             duration: $scope.currentEvent.duration,
-            notes: $scope.currentEvent.notes
+            notes: $scope.currentEvent.notes,
+            userId: $scope.currentEvent.userId,
         }, function (result) { $location.path('event_details') });
     }
 
@@ -53,6 +55,7 @@
             EventId: $scope.currentEvent.eventId,
             commentName: $scope.commentName,
             commentText: $scope.commentText,
+            userId: $scope.userId,
         }, function (result) { $location.path('event_details') });
     }
 

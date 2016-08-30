@@ -13,6 +13,7 @@ namespace RSVP.Domain.Model
         public DateTime StartDay { get; set; }
         public string Duration { get; set; }
         public string Notes { get; set; }
+        public string UserId { get; set; }
 
         [InverseProperty("Event")]
         public virtual ICollection<Comment> Comments { get; set; }

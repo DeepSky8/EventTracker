@@ -1,19 +1,20 @@
-﻿var site = angular.module('RSVP', ['ngResource', 'ngRoute', 'ui.bootstrap', 'ui.bootstrap.tpls', 'ui.bootstrap.collapse', 'xeditable' ]);
+﻿var site = angular.module('RSVP', ['ngResource', 'ngRoute', 'ui.bootstrap', 'ui.bootstrap.tpls', 'ui.bootstrap.collapse', 'xeditable']);
 
 site.factory('EventsApi', ['$resource', function ($resource) { return $resource('/api/Events/', {}, {}); }]);
 site.factory('CommentsApi', ['$resource', function ($resource) { return $resource('/api/Comments/', {}, {}); }]);
+site.factory('UserApi', ['$resource', function ($resource) { return $resource('/api/Account/', {}, {}); }]);
 
 site.config(['$routeProvider',
   function ($routeProvider) {
       $routeProvider.
-        when('/CreateNewEvent', {
-            templateUrl: 'events/create_event.html',
-            controller: 'EventsController'
-        }).
-        when('/ShowEvents', {
-            templateUrl: 'events/show_events.html',
-            controller: 'EventsController'
-        }).
+         when('/CreateNewEvent', {
+             templateUrl: 'events/create_event.html',
+             controller: 'EventsController'
+         }).
+          when('/ShowEvents', {
+              templateUrl: 'events/show_events.html',
+              controller: 'EventsController'
+          }).
           when('/Home', {
               templateUrl: 'events/home.html',
               controller: 'EventsController'
@@ -37,6 +38,10 @@ site.config(['$routeProvider',
           when('/EventDetails/:eventId', {
               templateUrl: 'events/event_details.html',
               controller: 'EventsController'
+          }).
+          when('/Login', {
+              templateUrl: 'events/login.html',
+              controller: 'LoginController'
           }).
         otherwise({
             redirectTo: '/Home'

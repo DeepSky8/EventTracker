@@ -153,6 +153,7 @@
     <Content Include="Contents\MyStyles.css" />
     <Content Include="packages.config" />
     <Content Include="Contents\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\LoginController.js" />
     <Content Include="Scripts\xeditable.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -166,20 +167,18 @@
     <Content Include="Scripts\App.js" />
     <Content Include="Scripts\DatePickerController.js" />
     <Content Include="Scripts\EventsController.js" />
-    <Content Include="Scripts\NavBar.js" />
     <Content Include="Scripts\TimePickerController.js" />
     <Content Include="Scripts\ui-bootstrap-tpls-1.3.3.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="AuthRepository.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Domain\Model\Comment.cs" />
     <Compile Include="Domain\Model\Event.cs" />
-    <Compile Include="Domain\Model\UserModel.cs" />
+    <Compile Include="Domain\Model\Users.cs" />
     <Compile Include="Domain\MyDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />

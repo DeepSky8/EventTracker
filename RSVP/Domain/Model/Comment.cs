@@ -12,6 +12,7 @@ namespace RSVP.Domain.Model
         public string CommentText { get; set; }
         public DateTime CommentDate { get; set; }
         public int EventId { get; set; }
+        public int UserId { get; set; }
 
         [JsonIgnore]
         public virtual Event Event { get; set; }
