@@ -11,38 +11,118 @@ using System.Web.Http;
 
 namespace RSVP.Controllers
 {
-    [RoutePrefix("api/account")]
+    [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
-        public void Post(Users newUser)
+
+
+
+
+        //[Authorize]
+        //[Route("")]
+        //public void Post(Users newUser)
+        //{
+        //    using (var db = new MyDataContext())
+        //    {
+        //        db.Entry(newUser).State = newUser.UserId == 0 ?
+        //                                        System.Data.Entity.EntityState.Added :
+        //                                        System.Data.Entity.EntityState.Modified;
+        //        db.SaveChanges();
+        //    }
+        //}
+
+        //[Authorize]
+        //[Route("")]
+        //public bool Post(int UserId, string UserName)
+        //{
+        //    var result = false;
+
+        //    using (var db = new MyDataContext())
+        //    {
+        //        var user = db.Users.Find(UserId);
+
+        //        if (UserId == user.UserId)
+        //        {
+        //            result = true;
+        //        }
+
+        //        return result;
+        //    }
+        //}
+
+
+
+
+
+
+
+
+        private AuthRepository _repo = null;
+
+        public AccountController()
         {
-            using (var db = new MyDataContext())
-            {
-                db.Entry(newUser).State = newUser.UserId == 0 ?
-                                                System.Data.Entity.EntityState.Added :
-                                                System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-            }
+            _repo = new AuthRepository();
         }
 
-        public bool Post(int UserId, string UserName)
+        // POST api/Account/Register
+        [AllowAnonymous]
+        [Route("Register")]
+        public async Task<IHttpActionResult> Register(Users userModel)
         {
-            var result = false;
-
-            using (var db = new MyDataContext())
+            if (!ModelState.IsValid)
             {
-                var user = db.Users.Find(UserId);
+                return BadRequest(ModelState);
+            }
 
-                if (UserId == user.UserId)
+            IdentityResult result = await _repo.RegisterUser(userModel);
+
+            IHttpActionResult errorResult = GetErrorResult(result);
+
+            if (errorResult != null)
+            {
+                return errorResult;
+            }
+
+            return Ok();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _repo.Dispose();
+            }
+
+            base.Dispose(disposing);
+        }
+
+        private IHttpActionResult GetErrorResult(IdentityResult result)
+        {
+            if (result == null)
+            {
+                return InternalServerError();
+            }
+
+            if (!result.Succeeded)
+            {
+                if (result.Errors != null)
                 {
-                    result = true;
+                    foreach (string error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error);
+                    }
                 }
 
-                return result;
+                if (ModelState.IsValid)
+                {
+                    // No ModelState errors are available to send, so just return an empty BadRequest.
+                    return BadRequest();
+                }
+
+                return BadRequest(ModelState);
             }
+
+            return null;
         }
-
-
-
     }
 }

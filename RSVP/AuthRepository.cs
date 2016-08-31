@@ -1,28 +1,24 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using RSVP.Domain;
 using RSVP.Domain.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace RSVP
 {
     public class AuthRepository : IDisposable
     {
-        private MyDataContext _ctx;
+        private AuthContext _ctx;
 
-        private UserManager<IdentityUser> _userManager;
+        private Microsoft.AspNet.Identity.UserManager<Microsoft.AspNet.Identity.EntityFramework.IdentityUser> _userManager;
 
         public AuthRepository()
         {
-            _ctx = new MyDataContext();
+            _ctx = new AuthContext();
             _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
         }
 
-        public async Task<IdentityResult> RegisterUser(UserModel userModel)
+        public async Task<IdentityResult> RegisterUser(Users userModel)
         {
             IdentityUser user = new IdentityUser
             {
