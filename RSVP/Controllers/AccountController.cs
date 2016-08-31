@@ -14,115 +14,45 @@ namespace RSVP.Controllers
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
-
-
-
-
-        //[Authorize]
-        //[Route("")]
-        //public void Post(Users newUser)
-        //{
-        //    using (var db = new MyDataContext())
-        //    {
-        //        db.Entry(newUser).State = newUser.UserId == 0 ?
-        //                                        System.Data.Entity.EntityState.Added :
-        //                                        System.Data.Entity.EntityState.Modified;
-        //        db.SaveChanges();
-        //    }
-        //}
-
-        //[Authorize]
-        //[Route("")]
-        //public bool Post(int UserId, string UserName)
-        //{
-        //    var result = false;
-
-        //    using (var db = new MyDataContext())
-        //    {
-        //        var user = db.Users.Find(UserId);
-
-        //        if (UserId == user.UserId)
-        //        {
-        //            result = true;
-        //        }
-
-        //        return result;
-        //    }
-        //}
-
-
-
-
-
-
-
-
-        private AuthRepository _repo = null;
-
-        public AccountController()
-        {
-            _repo = new AuthRepository();
-        }
-
-        // POST api/Account/Register
+        
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(Users userModel)
+        public void Register(Users newUser)
         {
-            if (!ModelState.IsValid)
+            using (var db = new MyDataContext())
             {
-                return BadRequest(ModelState);
+                db.Entry(newUser).State = newUser.UserId == 0 ?
+                                                System.Data.Entity.EntityState.Added :
+                                                System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
             }
-
-            IdentityResult result = await _repo.RegisterUser(userModel);
-
-            IHttpActionResult errorResult = GetErrorResult(result);
-
-            if (errorResult != null)
-            {
-                return errorResult;
-            }
-
-            return Ok();
         }
 
-        protected override void Dispose(bool disposing)
+        [Authorize]
+        [Route("")]
+        public bool LogIn(int UserId, string UserName)
         {
-            if (disposing)
-            {
-                _repo.Dispose();
-            }
+            var result = false;
 
-            base.Dispose(disposing);
-        }
-
-        private IHttpActionResult GetErrorResult(IdentityResult result)
-        {
-            if (result == null)
+            using (var db = new MyDataContext())
             {
-                return InternalServerError();
-            }
+                var user = db.Users.Find(UserId);
 
-            if (!result.Succeeded)
-            {
-                if (result.Errors != null)
+                if (UserId == user.UserId)
                 {
-                    foreach (string error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error);
-                    }
+                    result = true;
                 }
 
-                if (ModelState.IsValid)
-                {
-                    // No ModelState errors are available to send, so just return an empty BadRequest.
-                    return BadRequest();
-                }
-
-                return BadRequest(ModelState);
+                return result;
             }
-
-            return null;
         }
+
+
+
+
+
+
+
+
     }
 }
