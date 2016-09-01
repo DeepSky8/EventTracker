@@ -28,9 +28,10 @@ namespace RSVP.Controllers
             }
         }
 
-        [Authorize]
-        [Route("")]
-        public bool UserLogin(string UserName, string Password)
+        //[Authorize]
+        [AllowAnonymous]
+        [Route("Login")]
+        public bool UserLogin(User @user)
         {
             var result = false;
 
@@ -38,8 +39,8 @@ namespace RSVP.Controllers
             {
                 try
                 {
-                    var user = db.Users.Find(UserName);
-                    if (user.UserName == UserName && user.Password == Password)
+                    var foundUser = db.Users.Find(@user.UserName);
+                    if (foundUser.Password == @user.Password)
                     {
                         result = true;
                     }

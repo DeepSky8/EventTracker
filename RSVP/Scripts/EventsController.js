@@ -1,4 +1,4 @@
-﻿site.controller('EventsController', ['$scope', 'EventsApi', 'CommentsApi', '$route', '$location', function ($scope, eventsApi, commentsApi, $route, $location) {
+﻿site.controller('EventsController', ['$scope', 'EventsApi', 'CommentsApi', 'UsersApi', '$route', '$location', function ($scope, eventsApi, commentsApi, usersApi, $route, $location) {
     $scope.events = [];
     $scope.event = {};
 
