@@ -11,13 +11,13 @@ using System.Web.Http;
 
 namespace RSVP.Controllers
 {
-    [RoutePrefix("api/Account")]
-    public class AccountController : ApiController
+    [RoutePrefix("api/Users")]
+    public class UsersController : ApiController
     {
         
         [AllowAnonymous]
         [Route("Register")]
-        public void Register(Users newUser)
+        public void Register(User newUser)
         {
             using (var db = new MyDataContext())
             {
@@ -30,18 +30,28 @@ namespace RSVP.Controllers
 
         [Authorize]
         [Route("")]
-        public bool LogIn(int UserId, string UserName)
+        public bool UserLogin(string UserName, string Password)
         {
             var result = false;
 
             using (var db = new MyDataContext())
             {
-                var user = db.Users.Find(UserId);
-
-                if (UserId == user.UserId)
+                try
                 {
-                    result = true;
+                    var user = db.Users.Find(UserName);
+                    if (user.UserName == UserName && user.Password == Password)
+                    {
+                        result = true;
+                    }
+
                 }
+                catch (Exception e)
+                {
+
+                    throw new ArgumentException("Username and Password do not match", e);
+                }
+
+
 
                 return result;
             }

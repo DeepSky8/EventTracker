@@ -173,12 +173,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Domain\Model\Comment.cs" />
     <Compile Include="Domain\Model\Event.cs" />
-    <Compile Include="Domain\Model\Users.cs" />
+    <Compile Include="Domain\Model\User.cs" />
     <Compile Include="Domain\MyDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />

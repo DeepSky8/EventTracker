@@ -20,6 +20,6 @@ namespace RSVP.Domain
 
         public DbSet<Event> Events { get; set; }
         public DbSet<Comment> Comments { get; set; }
-        public DbSet<Users> Users { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

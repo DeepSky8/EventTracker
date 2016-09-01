@@ -2,7 +2,7 @@
 
 site.factory('EventsApi', ['$resource', function ($resource) { return $resource('/api/Events/', {}, {}); }]);
 site.factory('CommentsApi', ['$resource', function ($resource) { return $resource('/api/Comments/', {}, {}); }]);
-site.factory('UserApi', ['$resource', function ($resource) { return $resource('/api/Account/', {}, {}); }]);
+site.factory('UsersApi', ['$resource', function ($resource) { return $resource('/api/Users/', {}, {}); }]);
 
 site.config(['$routeProvider',
   function ($routeProvider) {

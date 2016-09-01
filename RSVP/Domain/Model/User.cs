@@ -6,7 +6,7 @@ using System.Web;
 
 namespace RSVP.Domain.Model
 {
-    public class Users
+    public class User
     {
         [Key]
         public int UserId { get; set; }
