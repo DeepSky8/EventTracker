@@ -11,7 +11,6 @@ namespace RSVP.Controllers
     {
 
         [Authorize]
-        [Route("")]
         public List<Event> Get()
         {
             var db = new MyDataContext();
@@ -22,7 +21,6 @@ namespace RSVP.Controllers
         }
 
         [Authorize]
-        [Route("")]
         public Event Get(int eventId)
         {
             var db = new MyDataContext();
@@ -33,7 +31,6 @@ namespace RSVP.Controllers
         }
 
         [Authorize]
-        [Route("")]
         public void Post(Event @event)
         {
             //Add logic to guard against titles being too long
@@ -51,7 +48,6 @@ namespace RSVP.Controllers
         }
 
         [Authorize]
-        [Route("")]
         public void Delete(int eventId)
         {
             using (var db = new MyDataContext())

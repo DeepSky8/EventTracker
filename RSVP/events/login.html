@@ -4,14 +4,14 @@
 
     <div class="form-group" id="loginUser">
         <label for="userName" class="sr-only">User Name</label>
-        <input type="text" class="form-control" id="userName" placeholder="User Name" ng-model="userName" maxlength="22" />
+        <input type="email" class="form-control" id="userName" placeholder="User Name" ng-model="emailAddress" maxlength="22" />
         <label for="password" class="sr-only">Password</label>
         <input type="text" class="form-control" id="password" placeholder="Password" ng-model="password" />
         <!--<label for="passwordConfirm" class="sr-only">Confirm Password</label>
         <input type="text" class="form-control" id="passwordConfirm" placeholder="Please confirm password" ng-model="passwordConfirm" />-->
     </div>
 
-    <button ng-click="checkCredentials(userName, password)" class="col-xs-6 button-Dark small-pad">Log In</button>
+    <button ng-click="checkCredentials(emailAddress, password)" class="col-xs-6 button-Dark small-pad">Log In</button>
 
     <button ng-click="resetPassword()" class="col-xs-6 button-Dark small-pad">Reset Password</button>
 

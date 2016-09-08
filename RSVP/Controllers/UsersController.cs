@@ -16,8 +16,7 @@ namespace RSVP.Controllers
     {
         
         [AllowAnonymous]
-        [Route("Register")]
-        public void Register(User newUser)
+        public void Get(User newUser)
         {
             using (var db = new MyDataContext())
             {
@@ -30,19 +29,20 @@ namespace RSVP.Controllers
 
         //[Authorize]
         [AllowAnonymous]
-        [Route("Login")]
-        public bool UserLogin(User @user)
+        public int Post(User user)
         {
-            var result = false;
+            var result = 0;
 
             using (var db = new MyDataContext())
             {
                 try
                 {
-                    var foundUser = db.Users.Find(@user.UserName);
-                    if (foundUser.Password == @user.Password)
+                    List<User> userMatches = db.Users.Where(x => x.EmailAddress == user.EmailAddress).ToList();
+                    User validUser = userMatches.Single();
+
+                    if (validUser.Password == user.Password)
                     {
-                        result = true;
+                        result = validUser.UserId;
                     }
 
                 }
@@ -57,13 +57,6 @@ namespace RSVP.Controllers
                 return result;
             }
         }
-
-
-
-
-
-
-
 
     }
 }
